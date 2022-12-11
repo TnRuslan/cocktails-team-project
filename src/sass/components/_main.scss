@@ -12,6 +12,11 @@
 
 .cocktails__list {
     margin-bottom: 60px;
+    @media  screen and (nim-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
 }
 
 .cocktails__card{
@@ -21,6 +26,9 @@
     border-radius: 4px;
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
+    @media screen and (min-width: 768px) {
+        width: calc((100% - 32) / 2);
+    }
 }
 
 
