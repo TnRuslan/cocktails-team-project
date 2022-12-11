@@ -12,7 +12,7 @@
 
 .cocktails__list {
     margin-bottom: 60px;
-    @media  screen and (nim-width: 768px) {
+    @media  screen and (min-width: 768px) {
         display: flex;
         flex-wrap: wrap;
         gap: 32px;
@@ -28,6 +28,10 @@
     font-family: 'Roboto', sans-serif;
     @media screen and (min-width: 768px) {
         width: calc((100% - 32px) / 2);
+        margin-bottom: 0px;
+    }
+    @media screen and (min-width: 1280px) {
+        width: calc((100% - 64px) / 3);
     }
 }
 
@@ -40,6 +44,13 @@
 
 .cocktails__content-wrapper {
     padding: 48px 22px 22px 22px;
+    @media screen and (min-width: 768px) {
+        padding: 20px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding: 20px 28px 28px 28px;
+    }
+
 }
 
 .cocktails__subtitle {
@@ -55,10 +66,11 @@
 
 .cocktails__buttons-wrapper {
     display: flex;
-    gap: 17px;
+    justify-content: space-between;
 }
 
 .cocktails__btn {
+    display: block;
     padding: 8px 16px;
     min-width: 108px;
 
@@ -74,19 +86,48 @@
     letter-spacing: 0.02em;
 
     background-color: $accColor;
+
+    @media screen and (min-width: 768px) {
+        min-width: 160px;
+        padding: 12px 27px;
+
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    @media screen and (min-width: 1280px) {
+        min-width: 182px;
+        padding: 12px 38px;
+
+
+    }
 }
 
 .cocktails__btn--white {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 8px;
 
     padding-left: 11px;
     padding-right: 11px;
 
     background-color: $txtColorWhite;
     color: $accColor;
-    border: 1px solid $accColor;
+    border: 2px solid $accColor;
+
+    @media screen and (min-width: 768px) {
+        gap: 4px;
+        min-width: 123px;
+        padding-left: 12px;
+        padding-right: 12px;
+
+        }
+    @media screen and (min-width: 1280px) {
+        max-width: 141px;
+        padding-left: 18px;
+        padding-right: 18px;
+
+    }
+        
 
 }
 
