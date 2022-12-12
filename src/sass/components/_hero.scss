@@ -2,13 +2,10 @@
   background-color: #ffffff;
 }
 
-.hero__wrapp {
+.hero__container {
   @media screen and (max-width: 767.98px) {
     padding-bottom: 40px;
   }
-}
-
-.hero__container {
   @media screen and (min-width: $tablet) {
     position: relative;
   }
@@ -103,21 +100,30 @@
   }
 }
 
-.hero__button {
+.hero__wrapper {
   @media screen and (max-width: 767.98px) {
-    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
     width: 93px;
     height: 34px;
+    position: relative;
+  }
+}
+
+.hero__btn {
+  @media screen and (max-width: 767.98px) {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
     color: $accColor;
     border: 1px solid $accColor;
     border-radius: 4px;
+    background-color: #ffffff;
 
     font-family: $Poppins;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.4;
-
-    position: relative;
   }
 
   @media screen and (min-width: $tablet) {
@@ -142,27 +148,14 @@
     overflow: auto;
     padding: 0;
 
-    // Виїжджаючий список
+    position: absolute;
+    top: 33px;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    // transition: transform 250ms ease;
+    z-index: 1;
   }
-
-  //   .hero__wrapp--overlay {
-  //     position: relative;
-  //     overflow: hidden;
-  //   }
-
-  //   .hero__overlay {
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-
-  //     transform: translatex(-100%);
-  //   }
-
-  //   .hero__wrapp--overlay:focus .hero__overlay {
-  //     transform: translatex(0);
-  //   }
 
   @media screen and (min-width: $tablet) {
     display: flex;
@@ -183,14 +176,22 @@
   }
 }
 
-// Виїжджаючий список
+@media screen and (max-width: 767.98px) {
+  .hero__wrapper:hover .hero__list {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
-// .hero__button:focus .hero__list {
-//   @media screen and (max-width: 767.98px) {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
+  .hero__wrapper:hover .hero__btn {
+    background-color: $accColor;
+    color: $bgColor;
+  }
+
+  .hero__wrapper:focus .hero__btn {
+    background-color: $accColor;
+    color: $bgColor;
+  }
+}
 
 .hero__item {
   @media screen and (max-width: 767.98px) {
@@ -213,34 +214,6 @@
     background-color: #ffffff;
     border-radius: 4px;
     cursor: pointer;
-  }
-}
-
-// .hero__button {
-//   @media screen and (max-width: 767.98px) {
-//     padding: 10px;
-//     width: 93px;
-//     height: 34px;
-//     color: $accColor;
-//     border: 1px solid $accColor;
-//     border-radius: 4px;
-
-//     font-family: $Poppins;
-//     font-weight: 700;
-//     font-size: 16px;
-//     line-height: 1.4;
-//   }
-
-//   @media screen and (min-width: $tablet) {
-//     display: none;
-//   }
-// }
-
-.hero__button:hover,
-.hero__button:focus {
-  @media screen and (max-width: 767.98px) {
-    background-color: $accColor;
-    color: $bgColor;
   }
 }
 
@@ -368,10 +341,6 @@
   }
 }
 
-.hero__icon--failure {
-  padding-bottom: 60px;
-}
-
 .hide {
   position: absolute;
   white-space: nowrap;
@@ -383,4 +352,10 @@
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+.hero__image img {
+  padding-bottom: 60px;
+  margin-right: auto;
+  margin-left: auto;
 }

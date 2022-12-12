@@ -31,19 +31,12 @@
       <img
         src="./images/image-hero/img1-hero@1x-320-white.jpg"
         loading="lazy"
-        alt="Girl and headphone"
+        alt="Сocktail"
       />
     </picture>
     <p class="hero__text">Search your favorite cocktail by ABC</p>
-    <div class="hero__wrapp">
-      <button class="hero__button button">
-        A
-        <svg class="hero__icon" width="24" height="24">
-          <use
-            href="./images/image-hero/icons.svg#icon-arrow-down-right2"
-          ></use>
-        </svg>
-      </button>
+    <div class="hero__wrapper">
+      <button class="hero__btn button">A</button>
       <ul class="hero__list">
         <li class="hero__item">
           <button class="hero__button--option button">A</button>
@@ -156,23 +149,40 @@
       </ul>
     </div>
   </div>
-  <div class="hero__wrapp--failure hide">
+  <div class="hero__wrapp--failure">
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
     </p>
-    <svg class="hero__icon--failure" width="280" height="308">
+    <!-- <svg class="hero__icon--failure" width="280" height="308">
       <use href="./images/image-hero/icons.svg#icon-Group"></use>
-    </svg>
+    </svg> -->
+    <picture class="hero__image">
+      <source
+        srcset="
+          ./images/image-hero/photo@3x-mob.jpg 1x,
+          ./images/image-hero/photo@3x-mob.jpg 2x
+        "
+        media="(min-width:1280px)"
+      />
+      <source
+        srcset="
+          ./images/image-hero/photo@2x-mob.jpg 1x,
+          ./images/image-hero/photo@2x-mob.jpg 2x
+        "
+        media="(min-width:768px)"
+      />
+      <source
+        srcset="
+          ./images/image-hero/photo@2x-mob.jpg 1x,
+          ./images/image-hero/photo@2x-mob.jpg 2x
+        "
+        media="(max-width:768px)"
+      />
+      <img
+        src="./images/image-hero/photo@2x-mob.jpg"
+        loading="lazy"
+        alt="Waiter and visitors"
+      />
+    </picture>
   </div>
 </section>
-
-<!-- <h1>Move the mouse over the square</h1> -->
-
-<!-- <div class="box">
-  <div class="overlay">
-    <p>
-      This content is hidden through transformation and only appears when
-      hovering over <code>div.box</code>
-    </p>
-  </div>
-</div> -->
