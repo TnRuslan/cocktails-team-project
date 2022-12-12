@@ -5,7 +5,7 @@
   "homepage": "https://TnRuslan.github.io/cocktails-team-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /cocktails-team-project/"
+    "build": "parcel build src/*.html --no-source-maps --public-url /cocktails-team-project/"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "parcel": "^2.6.0",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-reporter-clean-dist": "^1.0.4",
+    "parcel-transformer-hbs": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
