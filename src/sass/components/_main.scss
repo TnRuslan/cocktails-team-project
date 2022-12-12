@@ -1,3 +1,7 @@
+.cocktails {
+    padding-bottom: 60px;
+}
+
 .cocktails__title {
     text-align: center;
 
@@ -21,7 +25,7 @@
 }
 
 .cocktails__list {
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
     @media  screen and (min-width: 768px) {
         display: flex;
         flex-wrap: wrap;
