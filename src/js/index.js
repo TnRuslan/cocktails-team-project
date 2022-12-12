@@ -1,4 +1,4 @@
 // const axios = require('axios').default;
-import './js/header.js/index';
+import './header/index.js';
 // import createCardMarkup from './templates/cocktails-card.hbs';
 // console.log(createCardMarkup);
