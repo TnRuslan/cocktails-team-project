@@ -102,22 +102,26 @@
 
 .hero__wrapper {
   @media screen and (max-width: 767.98px) {
+    display: flex;
+    align-items: center;
     margin-right: auto;
     margin-left: auto;
     width: 93px;
     height: 34px;
     position: relative;
+    border: 1px solid #fd5103;
+    border-radius: 4px;
   }
 }
 
 .hero__btn {
   @media screen and (max-width: 767.98px) {
     padding: 10px;
-    width: 100%;
+    margin-right: 30px;
+    width: 40px;
     height: 100%;
+    margin-left: 0;
     color: $accColor;
-    border: 1px solid $accColor;
-    border-radius: 4px;
     background-color: #ffffff;
 
     font-family: $Poppins;
@@ -182,14 +186,25 @@
     opacity: 1;
   }
 
-  .hero__wrapper:hover .hero__btn {
+  .hero__wrapper:hover {
     background-color: $accColor;
     color: $bgColor;
   }
 
-  .hero__wrapper:focus .hero__btn {
-    background-color: $accColor;
+  .hero__wrapper:hover .hero__btn {
     color: $bgColor;
+  }
+
+  .hero__wrapper:focus .hero__btn {
+    color: $bgColor;
+  }
+
+  .hero__wrapper:hover .hero__svg {
+    fill: #fff;
+  }
+
+  .hero__wrapper:hover .hero__svg {
+    fill: #fff;
   }
 }
 
@@ -210,8 +225,7 @@
     justify-content: center;
     text-align: left;
     flex-direction: column;
-    margin: 0 auto;
-    background-color: #ffffff;
+    background-color: inherit;
     border-radius: 4px;
     cursor: pointer;
   }
@@ -369,15 +383,11 @@
   }
 }
 
-// .svg {
-//   width: 12px;
-//   height: 10px;
-// }
-
-// .wrp {
-//   display: flex;
-// }
-
-// .hero__btn {
-//   display: flex;
-// }
+.hero__svg {
+  width: 12px;
+  height: 10px;
+  color: #fd5103;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
