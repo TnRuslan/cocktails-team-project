@@ -354,8 +354,30 @@
   margin: -1px;
 }
 
-.hero__image img {
+.hero__image {
   padding-bottom: 60px;
   margin-right: auto;
   margin-left: auto;
+
+  @media screen and (max-width: 767.98px) {
+    width: 280px;
+    height: 308px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 345px;
+    height: 380px;
+  }
 }
+
+// .svg {
+//   width: 12px;
+//   height: 10px;
+// }
+
+// .wrp {
+//   display: flex;
+// }
+
+// .hero__btn {
+//   display: flex;
+// }
