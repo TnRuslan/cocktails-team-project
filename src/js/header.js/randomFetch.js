@@ -1,5 +1,4 @@
 const list = document.querySelector('.cocktails__list-js');
-
 export async function random() {
   const response = await fetch(
     'https://www.thecocktaildb.com/api/json/v1/1/random.php'
@@ -7,23 +6,36 @@ export async function random() {
   const data = await response.json();
   return data;
 }
-
 window.addEventListener('load', renderImg);
-
 let arr = [];
 let coc = null;
-
 async function renderImg() {
-  for (let i = 0; i < 9; i++) {
-    const img = await random();
-
-    arr.push(img.drinks);
-    coc = arr.flat();
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    for (let i = 0; i < 9; i++) {
+      const img = await random();
+      arr.push(img.drinks);
+      coc = arr.flat();
+    }
+    render(coc);
+    return;
+  } else if (window.matchMedia('(min-width: 768px)').matches) {
+    for (let i = 0; i < 6; i++) {
+      const img = await random();
+      arr.push(img.drinks);
+      coc = arr.flat();
+    }
+    render(coc);
+    return;
+  } else if (window.matchMedia('(min-width: 320px)').matches) {
+    for (let i = 0; i < 3; i++) {
+      const img = await random();
+      arr.push(img.drinks);
+      coc = arr.flat();
+    }
+    render(coc);
+    return;
   }
-
-  render(coc);
 }
-
 function render(img) {
   const markup = img
     .map(({ strDrink, strDrinkThumb }) => {
@@ -51,6 +63,5 @@ function render(img) {
              `;
     })
     .join('');
-
   return (list.innerHTML = markup);
 }
