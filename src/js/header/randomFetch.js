@@ -1,3 +1,4 @@
+import { renderCardImg } from './nameFetch';
 const list = document.querySelector('.cocktails__list-js');
 export async function random() {
   const response = await fetch(
@@ -18,8 +19,7 @@ async function renderImg() {
       arr.push(img.drinks);
       coc = arr.flat();
     }
-    // console.log(arr);
-    // console.log(coc);
+
     render(coc);
     return;
   } else if (window.matchMedia('(min-width: 768px)').matches) {
@@ -28,6 +28,7 @@ async function renderImg() {
       arr.push(img.drinks);
       coc = arr.flat();
     }
+
     render(coc);
     return;
   } else if (window.matchMedia('(min-width: 320px)').matches) {
@@ -36,6 +37,7 @@ async function renderImg() {
       arr.push(img.drinks);
       coc = arr.flat();
     }
+
     render(coc);
     return;
   }
@@ -43,18 +45,25 @@ async function renderImg() {
 function render(img) {
   const markup = img
     .map(({ strDrink, strDrinkThumb, idDrink }) => {
-      return `<li class="cocktails__card >
-                 <div class="cocktails__thumb">
-                     <img class="cocktails__image" src="${strDrinkThumb}" alt="${strDrink}">
-                 </div>
-                 <div class="cocktails__content-wrapper">
-                     <h3 class="cocktails__subtitle">${strDrink}</h3>
-                     <div class="cocktails__buttons-wrapper">
-                         <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
-                         <button class="cocktails__btn cocktails__btn--white remove" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">Add to</button>
-                     </div>
-                 </div>
-             `;
+      let classEl = 'remove';
+      let btnValue = 'Add to';
+      if (JSON.parse(localStorage.getItem('names')).includes(strDrink)) {
+        classEl = 'added';
+        btnValue = 'Remove';
+      }
+
+      return `<li class="cocktails__card">
+                <div class="cocktails__thumb">
+                    <img class="cocktails__image" src="${strDrinkThumb}" alt="${strDrink}">
+                </div>
+                <div class="cocktails__content-wrapper">
+                    <h3 class="cocktails__subtitle">${strDrink}</h3>
+                    <div class="cocktails__buttons-wrapper">
+                      <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
+                      <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">${btnValue}</button>
+                    </div>
+                </div>
+            </li>`;
     })
     .join('');
   return (list.innerHTML = markup);

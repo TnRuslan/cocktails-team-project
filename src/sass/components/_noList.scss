@@ -43,3 +43,18 @@
     line-height: 1.5;
   }
 }
+
+.hero__fail-icon {
+  margin-left: auto;
+  margin-right: auto;
+  width: 345px;
+  height: 380px;
+  background-image: url(../images/image-hero/people.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media screen and (max-width: 767px) {
+    width: 280px;
+    height: 308px;
+  }
+}
