@@ -41,7 +41,7 @@ async function renderImg() {
 }
 function render(img) {
   const markup = img
-    .map(({ strDrink, strDrinkThumb }) => {
+    .map(({ strDrink, strDrinkThumb, idDrink }) => {
       return `<li class="cocktails__card >
                  <div class="cocktails__thumb">
                      <img class="cocktails__image" src="${strDrinkThumb}" alt="${strDrink}">
@@ -50,7 +50,7 @@ function render(img) {
                      <h3 class="cocktails__subtitle">${strDrink}</h3>
                      <div class="cocktails__buttons-wrapper">
                          <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
-                         <button class="cocktails__btn cocktails__btn--white remove" type="button" data-action="add">Add to</button>
+                         <button class="cocktails__btn cocktails__btn--white remove" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">Add to</button>
                      </div>
                  </div>
              `;

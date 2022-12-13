@@ -10,14 +10,20 @@ function onButtonClick(e) {
       e.target.classList.remove('added');
 
       e.target.textContent = 'Add to';
-      localStorage.removeItem('cocktails-id');
+      localStorage.removeItem(e.target.dataset.name);
       return;
     } else if (e.target.textContent === 'Add to') {
       e.target.classList.add('added');
       e.target.classList.remove('remove');
       e.target.textContent = 'Remove';
-      localStorage.setItem('cocktails-id', '1');
+
+      localStorage.setItem(
+        e.target.dataset.name,
+        JSON.stringify(e.target.dataset.id)
+      );
     }
   }
   return;
 }
+
+// localStorage.clear();

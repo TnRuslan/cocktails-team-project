@@ -162,20 +162,22 @@
     right: 16px;
     content: "";
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 17px;
 
-    // background-color: black;
     background-image: url(../images/main/heart-2.svg);
     background-repeat: no-repeat;
     background-size: contain;
 
     @media screen and (min-width: 768px) {
-        top: 17px;
-        right: 11px;
+        top: 15px;
+        right: 8px;
+
+        width: 21px;
+        height: 19px;
     }
     @media screen and (min-width: 1280px) {
-        right: 24px;
+        right: 20px;
     }
 
 }
@@ -183,23 +185,27 @@
 .remove::after {
     position: absolute;
     
+    top: 11px;
     right: 16px;
     content: "";
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 17px;
 
     background-image: url(../images/main/heart-1.svg);
     background-repeat: no-repeat;
     background-size: contain;
 
     @media screen and (min-width: 768px) {
-        top: 17px;
-        right: 11px;
+        top: 15px;
+        right: 8px;
+
+        width: 21px;
+        height: 19px;
     }
 
     @media screen and (min-width: 1280px) {
-        right: 24px;
+        right: 20px;
     }
 }
 
