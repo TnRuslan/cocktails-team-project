@@ -41,8 +41,8 @@ function renderCardImg(img) {
                 <div class="cocktails__content-wrapper">
                     <h3 class="cocktails__subtitle">${strDrink}</h3>
                     <div class="cocktails__buttons-wrapper">
-                        <button class="cocktails__btn" type="button">Learn more</button>
-                        <button class="cocktails__btn cocktails__btn--white" type="button">
+                        <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
+                        <button class="cocktails__btn cocktails__btn--white" type="button" data-action="add">
                             Remove
                             <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
