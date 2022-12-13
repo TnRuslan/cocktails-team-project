@@ -270,6 +270,15 @@ body.dark {
   opacity: 1;
 }
 
+.open-btn__icon {
+  fill: currentColor;
+  background-color: $bgColor;
+}
+
+.open-btn__icon.dark {
+  background-color: $txtColorBlack;
+}
+
 .mobile-menu__wrraper {
   display: flex;
   align-items: center;
@@ -344,4 +353,8 @@ body.dark {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.mobile-nav__icon {
+  fill: currentColor;
 }

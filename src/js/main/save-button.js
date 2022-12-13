@@ -3,6 +3,7 @@ const cocktailsList = document.querySelector('.cocktails__list-js');
 cocktailsList.addEventListener('click', onButtonClick);
 
 let names = [];
+localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
