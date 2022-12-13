@@ -15,6 +15,7 @@ const switchEl = getElements(options, 'switch-field-js');
 const light = getElements(options, 'switch-light-js');
 const dark = getElements(options, 'switch-dark-js');
 const mobMenu = document.querySelector('.backdrop-menu');
+const btnOpenMenu = document.querySelector('.open-btn__icon');
 // console.log(switchEl);
 
 switchEl.addEventListener('input', onSwitch);
@@ -35,6 +36,7 @@ function addDarkmode(isDark) {
     light.classList.add('dark');
     dark.classList.add('dark');
     mobMenu.classList.add('dark');
+    btnOpenMenu.classList.add('dark');
     localStorage.setItem(KEY, 'dark');
     return;
   }
@@ -43,6 +45,7 @@ function addDarkmode(isDark) {
   light.classList.remove('dark');
   dark.classList.remove('dark');
   mobMenu.classList.remove('dark');
+  btnOpenMenu.classList.remove('dark');
   localStorage.removeItem(KEY);
 }
 

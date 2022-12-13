@@ -1,4 +1,5 @@
 import createCardMarkup from '../../templates/cocktails-card.hbs';
+const coctailTitle = document.querySelector('.cocktails__title');
 
 export async function nameFetch(searchName) {
   const response = await fetch(
@@ -44,6 +45,7 @@ export function renderCardImg(img) {
         classEl = 'added';
         btnValue = 'Remove';
       }
+      coctailTitle.classList.remove('hidden');
 
       return `<li class="cocktails__card">
                 <div class="cocktails__thumb">
@@ -64,6 +66,7 @@ export function renderCardImg(img) {
 }
 
 function noRender() {
+  coctailTitle.classList.add('hidden');
   const noMarkup = `<div class="hero__wrapp--failure">
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
