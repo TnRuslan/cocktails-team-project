@@ -31,9 +31,20 @@ async function onRenderImg(e) {
   }
 }
 
-function renderCardImg(img) {
+// function addSelectorBySave() {
+
+// }
+
+export function renderCardImg(img) {
   const markupCard = img.drinks
-    .map(({ strDrink, strDrinkThumb, strImageSource, idDrink }) => {
+    .map(({ strDrink, strDrinkThumb, idDrink }) => {
+      let classEl = 'remove';
+      let btnValue = 'Add to';
+      if (JSON.parse(localStorage.getItem('names')).includes(strDrink)) {
+        classEl = 'added';
+        btnValue = 'Remove';
+      }
+
       return `<li class="cocktails__card">
                 <div class="cocktails__thumb">
                     <img class="cocktails__image" src="${strDrinkThumb}" alt="${strDrink}">
@@ -42,7 +53,7 @@ function renderCardImg(img) {
                     <h3 class="cocktails__subtitle">${strDrink}</h3>
                     <div class="cocktails__buttons-wrapper">
                       <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
-                      <button class="cocktails__btn cocktails__btn--white remove" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">Add to</button>
+                      <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">${btnValue}</button>
                     </div>
                 </div>
             </li>`;
@@ -57,9 +68,9 @@ function noRender() {
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
     </p>
-      <svg width="20px" height="20px">
-        <use href="./images/symbol-defs.svg#icon-people"></use>
-      </svg>
+    <div class="hero__fail-icon">
+
+    </div>
   </div>`;
 
   return (list.innerHTML = noMarkup);

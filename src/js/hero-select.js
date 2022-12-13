@@ -1,3 +1,4 @@
+import { renderCardImg } from './header/nameFetch';
 const list = document.querySelector('.cocktails__list-js');
 // console.log(list);
 
@@ -9,7 +10,8 @@ async function searchCoctail(event) {
   console.log(coctailFirstLetter);
 
   const onFetchCoctail = await onFetchCoctails(coctailFirstLetter);
-  onRenderCountItem(onFetchCoctail);
+  // onRenderCountItem(onFetchCoctail);
+  renderCardImg(onFetchCoctail);
 }
 
 export async function onFetchCoctails(coctailFirstLetter) {
