@@ -3,7 +3,7 @@
     <div class="header-desktop__wrraper">
       <div class="nav-wrraper">
         <div class="header__logo">
-          <a class="logo-link" href="#"
+          <a class="logo-link" href="./index.html"
             ><svg
               width="156"
               height="43"
@@ -56,10 +56,22 @@
         <nav class="header-nav">
           <ul class="header-nav__list">
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#">Home</a>
+              <a class="header-nav__link" href="./index.html">Home</a>
             </li>
             <li class="header-nav__item">
-              <a class="header-nav__link" href="#">Favorite</a>
+              <a class="header-nav__link fav-list-js" href="#">Favorite</a>
+              <ul class="favorite">
+                <li class="favorite__item">
+                  <a class="favorite__link favorite__link--coc" href="#"
+                    >Favorite cocktails</a
+                  >
+                </li>
+                <li class="favorite__item">
+                  <a class="favorite__link favorite__link--ing" href="#"
+                    >Favorite ingredients</a
+                  >
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>
@@ -307,7 +319,9 @@
             <a class="mobile-nav__link" href="#">Home</a>
           </li>
           <li class="mobile-nav__item">
-            <a class="mobile-nav__link mobile-nav__link--fav" href="#"
+            <a
+              class="mobile-nav__link mobile-nav__link--fav fav-list-js"
+              href="#"
               >Favorite
               <svg
                 width="24"
@@ -321,6 +335,18 @@
                   fill="black"
                 /></svg
             ></a>
+            <ul class="favorite">
+              <li class="favorite__item">
+                <a class="favorite__link favorite__link--coc" href="#"
+                  >Favorite cocktails</a
+                >
+              </li>
+              <li class="favorite__item">
+                <a class="favorite__link favorite__link--ing" href="#"
+                  >Favorite ingredients</a
+                >
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
