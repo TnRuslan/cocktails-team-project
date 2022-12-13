@@ -6,6 +6,7 @@ export async function random() {
   const data = await response.json();
   return data;
 }
+
 window.addEventListener('load', renderImg);
 let arr = [];
 let coc = null;
