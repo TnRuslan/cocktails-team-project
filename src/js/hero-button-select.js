@@ -1,18 +1,17 @@
 // import from '../js/header/nameFetch';
 
 const list = document.querySelector('.cocktails__list-js');
-const listOfButton = document.querySelector('.hero__list');
+
+const listOfButton = document.querySelector('.select-box__values');
 listOfButton.addEventListener('click', searchCoctail);
 
 async function searchCoctail(event) {
-  const coctailFirstLetter = event.target.name;
-  console.log(coctailFirstLetter);
+  const coctailFirstLetter = event.target.value;
+  console.dir(coctailFirstLetter);
 
   const onFetchCoctail = await onFetchCoctails(coctailFirstLetter);
   console.log(onFetchCoctail);
   onRenderCountItem(onFetchCoctail);
-
-  console.log(onFetchCoctail.img);
 }
 
 export async function onFetchCoctails(coctailFirstLetter) {
