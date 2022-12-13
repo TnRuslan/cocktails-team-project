@@ -1,18 +1,23 @@
 const cocktailsList = document.querySelector('.cocktails__list-js');
-const cocktailsCard = document.querySelectorAll('.cocktails__card');
 
 cocktailsList.addEventListener('click', onButtonClick);
-// cocktailsCard.addEventListener
 
 function onButtonClick(e) {
-  console.log(cocktailsCard);
-  //   console.log(e.target.dataset.action);
   if (e.target.dataset.action === 'more') {
-    console.log('open modal');
   } else if (e.target.dataset.action === 'add') {
-    console.log(e.currentTarget);
-    console.log(e.target);
-    localStorage.setItem('cocktails-id', '1');
+    if (e.target.textContent === 'Remove') {
+      e.target.classList.add('remove');
+      e.target.classList.remove('added');
+
+      e.target.textContent = 'Add to';
+      localStorage.removeItem('cocktails-id');
+      return;
+    } else if (e.target.textContent === 'Add to') {
+      e.target.classList.add('added');
+      e.target.classList.remove('remove');
+      e.target.textContent = 'Remove';
+      localStorage.setItem('cocktails-id', '1');
+    }
   }
   return;
 }

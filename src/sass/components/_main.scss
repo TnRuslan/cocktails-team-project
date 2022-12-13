@@ -126,6 +126,7 @@
 }
 
 .cocktails__btn--white {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -145,12 +146,60 @@
 
         }
     @media screen and (min-width: 1280px) {
-        max-width: 141px;
+        min-width: 141px;
         padding-left: 18px;
         padding-right: 18px;
 
     }
-        
+    
+}
 
+
+.added::after {
+    position: absolute;
+
+    top: 11px;
+    right: 16px;
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    // background-color: black;
+    background-image: url(../images/main/heart-2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media screen and (min-width: 768px) {
+        top: 17px;
+        right: 11px;
+    }
+    @media screen and (min-width: 1280px) {
+        right: 24px;
+    }
+
+}
+
+.remove::after {
+    position: absolute;
+    
+    right: 16px;
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    background-image: url(../images/main/heart-1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media screen and (min-width: 768px) {
+        top: 17px;
+        right: 11px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        right: 24px;
+    }
 }
 
