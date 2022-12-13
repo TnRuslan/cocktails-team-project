@@ -1,3 +1,13 @@
+body {
+  background-color: $bgColor;
+  color: $txtColorBlack;
+}
+
+body.dark {
+  background-color: $txtColorBlack;
+  color: $bgColor;
+}
+
 .header-desktop__wrraper {
   display: flex;
   align-items: center;
@@ -54,7 +64,7 @@
   font-size: 18px;
   line-height: 1.33;
   letter-spacing: 0.02em;
-  color: $txtColorBlack;
+  color: inherit;
   transition: color 250ms linear;
 
   &:hover,
@@ -72,7 +82,7 @@
   z-index: 1;
 }
 
-.is-hidden {
+.is-visible {
   display: block;
 }
 
@@ -89,7 +99,7 @@
   &:hover,
   &:focus {
     background-color: $accColor;
-    color: $txtColorWhite;
+    color: inherit;
   }
 
   &--coc {
@@ -124,6 +134,7 @@
   outline: none;
   padding: 0 8px;
   width: 240px;
+  background-color: inherit;
 
   @media screen and (min-width: $tablet) {
     width: 248px;
@@ -153,7 +164,7 @@
   align-items: center;
   padding: 8px;
   display: flex;
-  background-color: transparent;
+  background-color: inherit;
 }
 
 // ======= Switch =========
@@ -178,6 +189,7 @@
 
 .switch-field:checked {
   background-color: $accColor;
+  border: 1px solid #ffffff;
 }
 
 .switch-field::before {
@@ -202,7 +214,7 @@
   color: $accColor;
 }
 
-.switch-light.dark-mode {
+.switch-light.dark {
   color: #ffffff;
 }
 
@@ -210,7 +222,7 @@
   color: $txtColorGray;
 }
 
-.switch-dark.dark-mode {
+.switch-dark.dark {
   color: $accColor;
 }
 
@@ -240,13 +252,17 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $bgColor;
+  background-color: #ffffff;
   padding-top: 20px;
 
   transform: translateX(-100%);
   opacity: 0;
   transition: transform 250ms linear, opacity 250ms linear;
   overflow: auto;
+}
+
+.backdrop-menu.dark {
+  background-color: $txtColorBlack;
 }
 
 .backdrop-menu.is-open {
@@ -315,7 +331,7 @@
   font-size: 28px;
   line-height: 0.86;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: inherit;
   transition: color 250ms linear;
 
   &:hover,
