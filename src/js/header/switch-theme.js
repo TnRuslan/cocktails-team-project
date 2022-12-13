@@ -15,7 +15,7 @@ const switchEl = getElements(options, 'switch-field-js');
 const light = getElements(options, 'switch-light-js');
 const dark = getElements(options, 'switch-dark-js');
 const mobMenu = document.querySelector('.backdrop-menu');
-console.log(switchEl);
+// console.log(switchEl);
 
 switchEl.addEventListener('input', onSwitch);
 
