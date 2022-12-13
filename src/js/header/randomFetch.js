@@ -18,8 +18,8 @@ async function renderImg() {
       arr.push(img.drinks);
       coc = arr.flat();
     }
-    console.log(arr);
-    console.log(coc);
+    // console.log(arr);
+    // console.log(coc);
     render(coc);
     return;
   } else if (window.matchMedia('(min-width: 768px)').matches) {

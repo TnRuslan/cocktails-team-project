@@ -1,5 +1,5 @@
 const list = document.querySelector('.cocktails__list-js');
-console.log(list);
+// console.log(list);
 
 const listOfButton = document.querySelector('.hero__list');
 listOfButton.addEventListener('click', searchCoctail);
