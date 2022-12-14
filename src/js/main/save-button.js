@@ -1,18 +1,19 @@
+import { openModal } from '../modal/modal-coct';
+
 const cocktailsList = document.querySelector('.cocktails__list-js');
-const cocktailsModal = document.querySelector('.backdrop');
-const closeCocktailModalBtn = document.querySelector('.modal__close');
+// const cocktailsModal = document.querySelector('.backdrop');
+// const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
 
-closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
+// closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
 
 let names = [];
 localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
-    console.log('sdfdfsdf');
-    cocktailsModal.classList.remove('is__hidden');
+    openModal(e.target.dataset.index);
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
       e.target.classList.add('remove');
@@ -52,10 +53,10 @@ function addStartNames() {
   // console.log(saveName);
 }
 
-function onCoctailModalClose(e) {
-  e.target;
+// function onCoctailModalClose(e) {
+//   e.target;
 
-  cocktailsModal.classList.add('is__hidden');
-}
+//   cocktailsModal.classList.add('is__hidden');
+// }
 
 // localStorage.clear();
