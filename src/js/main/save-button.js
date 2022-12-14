@@ -4,15 +4,12 @@ const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
 
-// closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
-
 let names = [];
 addStartNames();
 localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
-    console.log('sdfdfsdf');
     cocktailsModal.classList.remove('is__hidden');
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
@@ -51,11 +48,5 @@ function addStartNames() {
     names = [...saveName];
   }
 }
-
-// function onCoctailModalClose(e) {
-//   e.target;
-
-//   cocktailsModal.classList.add('is__hidden');
-// }
 
 // localStorage.clear();

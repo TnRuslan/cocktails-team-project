@@ -1,39 +1,35 @@
 import axios from 'axios';
-import debounce from 'lodash.debounce';
-import throttle from 'lodash.throttle';
 
 const favoriteList = document.querySelector('.cocktails__list');
 const favTitle = document.querySelector('.favourites__title');
+const favouritesSubtitle = document.querySelector('.favourites__subtitle');
 
-favoriteList.addEventListener('click', throttle(onClickRemove, 1000));
-
-function resetLocalStorage() {
-  let local = JSON.parse(localStorage.getItem('names'));
-  return local;
-}
-// let local = JSON.parse(localStorage.getItem('names'));
+let names = JSON.parse(localStorage.getItem('names'));
 
 allPromises();
 
-async function fetchLocal(resetLocalStorage) {
-  let local = resetLocalStorage;
+async function fetchLocal(name) {
   return await axios.get(
-    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${local}`
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
   );
 }
 
 function mapLocal() {
   const arrPromises = [];
-  let local = resetLocalStorage();
-  local.map(cocktail => {
+  names.map(cocktail => {
     arrPromises.push(fetchLocal(cocktail));
   });
   return arrPromises;
 }
 
 async function allPromises() {
-  const cocktail = await Promise.all([...mapLocal()]);
-  favoriteList.innerHTML = renderByLocal(cocktail);
+  if (names.length !== 0) {
+    favouritesSubtitle.classList.add('hidden');
+    const cocktail = await Promise.all([...mapLocal()]);
+    favoriteList.innerHTML = renderByLocal(cocktail);
+    return;
+  }
+  favouritesSubtitle.classList.remove('hidden');
 }
 
 function renderByLocal(datas) {
@@ -67,13 +63,6 @@ function renderByLocal(datas) {
     })
     .join('');
   return markupCard;
-}
-async function onClickRemove(e) {
-  if (e.target.textContent === 'Remove') {
-    resetLocalStorage();
-    const cocktail = await Promise.all([...mapLocal()]);
-    favoriteList.innerHTML = renderByLocal(cocktail);
-  }
 }
 
 // fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007')
