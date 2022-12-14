@@ -4,9 +4,10 @@ const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
 
-closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
+// closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
 
 let names = [];
+addStartNames();
 localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
