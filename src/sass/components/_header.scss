@@ -135,6 +135,7 @@ body.dark {
   padding: 0 8px;
   width: 240px;
   background-color: inherit;
+  color: inherit;
 
   @media screen and (min-width: $tablet) {
     width: 248px;
@@ -270,6 +271,15 @@ body.dark {
   opacity: 1;
 }
 
+.open-btn__icon {
+  fill: currentColor;
+  background-color: $bgColor;
+}
+
+.open-btn__icon.dark {
+  background-color: $txtColorBlack;
+}
+
 .mobile-menu__wrraper {
   display: flex;
   align-items: center;
@@ -344,4 +354,8 @@ body.dark {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.mobile-nav__icon {
+  fill: currentColor;
 }
