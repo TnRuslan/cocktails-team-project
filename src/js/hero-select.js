@@ -1,15 +1,15 @@
-import { renderCardImg } from './header/nameFetch';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const list = document.querySelector('.cocktails__list-js');
 const listOfButton = document.querySelector('.hero__list');
+const heroBtn = document.querySelector('.hero__btn');
 listOfButton.addEventListener('click', searchCoctail);
 
 async function searchCoctail(event) {
   const coctailFirstLetter = event.target.name;
-  console.log(coctailFirstLetter);
+  heroBtn.innerHTML = coctailFirstLetter.toUpperCase();
 
   const onFetchCoctail = await onFetchCoctails(coctailFirstLetter);
-  // onRenderCountItem(onFetchCoctail);
-  renderCardImg(onFetchCoctail);
+  onRenderCountItem(onFetchCoctail);
 }
 
 export async function onFetchCoctails(coctailFirstLetter) {
@@ -21,9 +21,8 @@ export async function onFetchCoctails(coctailFirstLetter) {
 }
 
 function onRenderCountItem(img) {
-  console.log(img.drinks);
-
   if (!img.drinks) {
+    Notify.failure('Нажаль, такий коктейль відсутній');
     noRender();
     return;
   } else {
