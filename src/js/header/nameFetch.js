@@ -1,5 +1,6 @@
 import createCardMarkup from '../../templates/cocktails-card.hbs';
 const coctailTitle = document.querySelector('.cocktails__title');
+const mobMenu = document.querySelector('#mob-menu');
 
 export async function nameFetch(searchName) {
   const response = await fetch(
@@ -18,6 +19,7 @@ const list = document.querySelector('.cocktails__list-js');
 
 async function onRenderImg(e) {
   e.preventDefault();
+  mobMenu.classList.remove('is-open');
   const inputVal = e.target.elements.searchQuery.value;
 
   if (inputVal !== '') {
