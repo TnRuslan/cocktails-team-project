@@ -49,13 +49,12 @@ function addStartNames() {
   if (saveName) {
     names = [...saveName];
   }
-  // console.log(saveName);
 }
 
-function onCoctailModalClose(e) {
-  e.target;
+// function onCoctailModalClose(e) {
+//   e.target;
 
-  cocktailsModal.classList.add('is__hidden');
-}
+//   cocktailsModal.classList.add('is__hidden');
+// }
 
 // localStorage.clear();
