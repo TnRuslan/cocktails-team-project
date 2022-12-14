@@ -1,12 +1,18 @@
 const cocktailsList = document.querySelector('.cocktails__list-js');
+const cocktailsModal = document.querySelector('.backdrop');
+const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
+
+closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
 
 let names = [];
 localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
+    console.log('sdfdfsdf');
+    cocktailsModal.classList.remove('is__hidden');
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
       e.target.classList.add('remove');
@@ -43,7 +49,13 @@ function addStartNames() {
   if (saveName) {
     names = [...saveName];
   }
-  console.log(saveName);
+  // console.log(saveName);
+}
+
+function onCoctailModalClose(e) {
+  e.target;
+
+  cocktailsModal.classList.add('is__hidden');
 }
 
 // localStorage.clear();
