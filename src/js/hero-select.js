@@ -47,13 +47,14 @@ function onRenderCountItem(img) {
 }
 
 function noRender() {
+  coctailTitle.classList.add('hidden');
   const noMarkup = `<div class="hero__wrapp--failure">
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
     </p>
-      <svg width="20px" height="20px">
-        <use href="./images/symbol-defs.svg#icon-people"></use>
-      </svg>
+    <div class="hero__fail-icon">
+
+    </div>
   </div>`;
   return (list.innerHTML = noMarkup);
 }
