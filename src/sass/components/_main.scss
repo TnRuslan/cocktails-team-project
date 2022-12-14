@@ -48,6 +48,8 @@
 
 .cocktails__card {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 
   border: 1px solid $accColor;
   border-radius: 4px;
@@ -68,6 +70,10 @@
 }
 
 .cocktails__content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
   padding: 48px 22px 22px 22px;
   @media screen and (min-width: 768px) {
     padding: 20px;
