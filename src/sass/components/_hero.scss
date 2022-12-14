@@ -360,7 +360,32 @@
     border-radius: 4px;
     background-color: #fff;
     color: #fd5103;
+    // padding-right: 10px;
+    // padding-left: 10px;
+
+    // appearance: none;
+    // background: url(arrow_custom.svg) no-repeat right;
+    // background-position-x: calc(100% - 8px);
   }
+}
+
+// .select-box__values::selection {
+//   background-color: rgb(58, 122, 43);
+// }
+
+// .select-box__value::selection {
+//   background-color: rgb(58, 122, 43);
+// }
+
+.select-box__values:hover,
+.select-box__values:focus {
+  background-color: #ffffff;
+  // color: #ffffff;
+}
+
+.select-box__value:hover,
+.select-box__value:focus {
+  background-color: #ffffff;
 }
 
 .select-box__value {
@@ -369,11 +394,30 @@
     padding: 10px 2px;
     width: 100%;
     color: $txtColorGray;
+    background-color: #fff;
+
+    border: 1px solid #fd5103;
+    border-radius: 4px;
 
     font-size: 10px;
     line-height: 1.5;
   }
 }
+
+// .select-box__values:hover,
+// .select-box__values:focus,
+// .select-box__values:visited,
+// .select-box__values.hero {
+//   background-color: #ffffff;
+// }
+
+// .select-box__value:hover,
+// .select-box__value:focus,
+// .select-box__value:visited,
+// .select-box__value:active {
+//   color: inherit;
+//   background-color: #ffffff;
+// }
 
 .select-box__wrapper {
   @media screen and (max-width: 767.98px) {

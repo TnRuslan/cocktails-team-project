@@ -52,7 +52,7 @@ function renderCardImg(img) {
   return (list.innerHTML = markupCard);
 }
 
-export function noRender() {
+function noRender() {
   const noMarkup = `<div class="hero__wrapp--failure">
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
