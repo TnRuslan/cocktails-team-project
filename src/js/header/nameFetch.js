@@ -54,7 +54,7 @@ export function renderCardImg(img) {
                 <div class="cocktails__content-wrapper">
                     <h3 class="cocktails__subtitle">${strDrink}</h3>
                     <div class="cocktails__buttons-wrapper">
-                      <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
+                      <button class="cocktails__btn" type="button" data-action="more" data-index="${idDrink}">Learn more</button>
                       <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">${btnValue}</button>
                     </div>
                 </div>
