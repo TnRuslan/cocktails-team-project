@@ -1,8 +1,11 @@
+import { openModal } from '../modal/modal-coct';
+
 const cocktailsList = document.querySelector('.cocktails__list-js');
-const cocktailsModal = document.querySelector('.backdrop');
-const closeCocktailModalBtn = document.querySelector('.modal__close');
+// const cocktailsModal = document.querySelector('.backdrop');
+// const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
+
 
 let names = [];
 addStartNames();
@@ -10,7 +13,7 @@ localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
-    cocktailsModal.classList.remove('is__hidden');
+    openModal(e.target.dataset.index);
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
       e.target.classList.add('remove');
@@ -48,5 +51,7 @@ function addStartNames() {
     names = [...saveName];
   }
 }
+
+
 
 // localStorage.clear();

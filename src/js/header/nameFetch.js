@@ -1,5 +1,6 @@
 import createCardMarkup from '../../templates/cocktails-card.hbs';
 const coctailTitle = document.querySelector('.cocktails__title');
+const mobMenu = document.querySelector('#mob-menu');
 
 export async function nameFetch(searchName) {
   const response = await fetch(
@@ -18,6 +19,7 @@ const list = document.querySelector('.cocktails__list-js');
 
 async function onRenderImg(e) {
   e.preventDefault();
+  mobMenu.classList.remove('is-open');
   const inputVal = e.target.elements.searchQuery.value;
 
   if (inputVal !== '') {
@@ -54,7 +56,7 @@ export function renderCardImg(img) {
                 <div class="cocktails__content-wrapper">
                     <h3 class="cocktails__subtitle">${strDrink}</h3>
                     <div class="cocktails__buttons-wrapper">
-                      <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
+                      <button class="cocktails__btn" type="button" data-action="more" data-index="${idDrink}">Learn more</button>
                       <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add" data-id="${idDrink}" data-name="${strDrink}">${btnValue}</button>
                     </div>
                 </div>

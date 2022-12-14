@@ -1,61 +1,48 @@
-// const backdrop = document.querySelector('.backdrop');
-// const modalCocktail = document.querySelector('.modal');
-// // console.log();
-// const btnCloseModal = document.querySelector('.modal__close');
-// cocktails__btn
+const cocktailsModal = document.querySelector('.backdrop');
+const closeCocktailModalBtn = document.querySelector('#close__modal-fc');
 
-// (() => {
-//     const modalCocktail = document.querySelector('.backdrop');
-//     const openModalBtn = document.querySelector('.cocktails__btn');
-//     const closeModalBtn = document.querySelector('.modal__close');
+const coctailsCloseBackdrop = (evt) => {
+  if (evt.target === evt.currentTarget) {
+    cocktailsModal.classList.add('is__hidden');
+    clearEvtListener();
+  }
+}
 
-//     const toggleModal = () => {
-//         const isMenuOpen =
-//             openModalBtn.getAttribute('aria-expanded') === 'true' || false;
-//             openModalBtn.setAttribute('aria-expanded', !isMenuOpen);
-//             modalCocktail.classList.toggle('is__hidden');
-//     };
+const closeModalHandler = (evt) => {
+  if (evt.type === 'click' || evt.code === "Escape") {
+    cocktailsModal.classList.add('is__hidden');
+    clearEvtListener();
+  }
+}
 
-//     openModalBtn.addEventListener('click', () => {
-//         toggleModal();
-//         document.body.style.overflow = '';
-//     });
-//     closeModalBtn.addEventListener('click', () => {
-//         toggleModal();
-//         document.body.style.overflow = '';
-//     });
+const clearEvtListener = () => {
+  closeCocktailModalBtn.removeEventListener('click', closeModalHandler);
+  document.removeEventListener('keyup', closeModalHandler);
+  cocktailsModal.removeEventListener('click', coctailsCloseBackdrop);
+}
+
+export async function openModal(id) {
+  
+  const data = await idFetch(id);
+
+  // сюди вставити метод, який потім заповнить модалку(data).
+  cocktailsModal.classList.remove('is__hidden');
+  closeCocktailModalBtn.addEventListener('click', closeModalHandler);
+  document.addEventListener('keyup', closeModalHandler);
+  cocktailsModal.addEventListener('click', coctailsCloseBackdrop);
+}
 
 // })();
 
-// // export function openModalCockt(onClose = () => {}) {
-// //   backdrop.classList.remove('is__hidden');
-// //   btnCloseModal.addEventListener('click', closeModalCockt);
-// //   backdrop.addEventListener('click', onBackdropClick);
-// //   window.addEventListener('keydown', onEscClick);
-// //   document.body.classList.add('no-scroll');
-// //   callbackOnClose = onClose;
-// // }
+ async function idFetch(id) {
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+   );
 
-// export function closeModalCocktail() {
-//   backdrop.classList.add('is-hidden');
-//   btnCloseModal.removeEventListener('click', closeModalCocktail);
-//   backdrop.removeEventListener('click', onBackDropClick);
-//   window.removeEventListener('keydown', onEscClick);
-//   document.body.classList.remove('no-scroll');
-//   callbackOnClose();
-// }
+  const data = await response.json();
+   return data?.drinks.length ? data.drinks[0] : null
+}
 
-// function onBackDropClick(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closeModalCocktail();
-//   }
-// }
-
-// function onEscClick(evt) {
-//   if (evt.code === 'Escape') {
-//     closeModalCocktail();
-//   }
-// }
 
 // function () {
 //     const markup = `
@@ -69,7 +56,7 @@
 //         <h3 class="coctail__instruction">INSTRUCTIONS:</h3>
 //         <p class="coctail__description">${}
 //         </p>
-//         <img class="coctail-img" src="${}" alt="$}" />
+//         <img class="coctail-img" src="${}" alt="${}}" />
 //         <h4 class="ingredients">INGREDIENTS</h4>
 //         <p class="ingredients__percoctail">Per coctail</p>
 //         <ul class="ingredients__list">
@@ -87,6 +74,7 @@
 // </div>`;
 //     document.body.insertAdjacentHTML('beforeend', markup);
 // }
+
 // document.querySelector('.modal__close').addEventListener('click', closeModal);
 //   document.querySelector('.modal').addEventListener('click', modalBtnListener);
 //   document
@@ -94,27 +82,3 @@
 //     .addEventListener('click', onClickIngr);
 // }
 
-// export function closeModal() {
-//   modalDelay();
-//   document
-//     .querySelector('.modal__close')
-//     .removeEventListener('click', closeModal);
-//   document.querySelector('.modal').removeEventListener('click', cardBtnListenr);
-//   setTimeout(removeModalMark, 400);
-//   ingrList = [];
-//   ingrNameList = [];
-// }
-
-// function modalDelay() {
-//   document.body.classList.toggle('scroll_off');
-//   document.querySelector('.backdrop').classList.toggle('is__hidden');
-// }
-
-// function removeModalMark() {
-//   document.querySelector('.backdrop').remove();
-// }
-
-// export async function modalBtnListener(e) {
-//   if (e.target.dataset.add)
-//     return await btnAddFav(e.target.dataset.favid, 'modal', refFav);
-// }

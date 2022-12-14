@@ -4,5 +4,3 @@ import './main/save-button';
 // import createCardMarkup from './templates/cocktails-card.hbs';
 // console.log(createCardMarkup);
 import './hero-select';
-import './hero-button-select';
-import './button-select';

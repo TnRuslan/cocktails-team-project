@@ -1,15 +1,15 @@
-import { renderCardImg } from './header/nameFetch';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const list = document.querySelector('.cocktails__list-js');
 const listOfButton = document.querySelector('.hero__list');
+const heroBtn = document.querySelector('.hero__btn');
 listOfButton.addEventListener('click', searchCoctail);
 
 async function searchCoctail(event) {
   const coctailFirstLetter = event.target.name;
-  console.log(coctailFirstLetter);
+  heroBtn.innerHTML = coctailFirstLetter.toUpperCase();
 
   const onFetchCoctail = await onFetchCoctails(coctailFirstLetter);
-  // onRenderCountItem(onFetchCoctail);
-  renderCardImg(onFetchCoctail);
+  onRenderCountItem(onFetchCoctail);
 }
 
 export async function onFetchCoctails(coctailFirstLetter) {
@@ -21,9 +21,8 @@ export async function onFetchCoctails(coctailFirstLetter) {
 }
 
 function onRenderCountItem(img) {
-  console.log(img.drinks);
-
   if (!img.drinks) {
+    Notify.failure('Нажаль, такий коктейль відсутній');
     noRender();
     return;
   } else {
@@ -48,13 +47,14 @@ function onRenderCountItem(img) {
 }
 
 function noRender() {
+  coctailTitle.classList.add('hidden');
   const noMarkup = `<div class="hero__wrapp--failure">
     <p class="hero__text--failure">
       Sorry, we didn't find any cocktail for you
     </p>
-      <svg width="20px" height="20px">
-        <use href="./images/symbol-defs.svg#icon-people"></use>
-      </svg>
+    <div class="hero__fail-icon">
+
+    </div>
   </div>`;
   return (list.innerHTML = noMarkup);
 }
