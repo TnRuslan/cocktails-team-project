@@ -226,6 +226,7 @@
   &:hover,
     &:focus {
     background-color: $bgColor;
+    border: $accColor 1px solid;
     }
 }
 
