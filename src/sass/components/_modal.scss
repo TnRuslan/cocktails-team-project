@@ -37,8 +37,8 @@
     top: 50%;
     left: 50%;
     width: 722px;
-    height: 528px;
-    padding: 15px 10px;
+    height: 598px;
+    padding: 10px 10px;
     display: flex;
     flex-direction: column;
     transform: translate(-50%, -50%);
@@ -46,11 +46,39 @@
   }
   @media screen and (min-width: $desktop) {
     width: 820px;
-    height: 550px;
+    height: 598px;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 300ms $cubic, opacity 300ms $cubic;
   }
 }
+
+.modal-render {
+  background-color: inherit;
+}
+
+//   // font-family: $Poppins;
+//   // background-color: $bgColor;
+
+//   // @media screen and (min-width: $tablet) {
+//   //   position: absolute;
+//   //   top: 50%;
+//   //   left: 50%;
+//   //   width: 722px;
+//   //   height: 528px;
+//   //   padding: 15px 10px;
+//   //   display: flex;
+//   //   flex-direction: column;
+//   //   transform: translate(-50%, -50%);
+//   //   border-radius: 10px;
+//   // }
+
+//   // @media screen and (min-width: $desktop) {
+//   //   width: 820px;
+//   //   height: 550px;
+//   //   transform: translate(-50%, -50%) scale(1);
+//   //   transition: transform 300ms $cubic, opacity 300ms $cubic;
+//   // }
+// }
 
 .modal__close {
   position: absolute;
@@ -106,6 +134,9 @@
   margin-top: 24px;
   font-size: 16px;
   line-height: 1.75;
+  color: #5F6775;
+  font-family: $Poppins;
+  font-weight: 400;
   // overflow-y: auto;
 
   @media screen and (min-width: $tablet) {
@@ -176,6 +207,7 @@
 }
 
 .ingredients__item {
+  color: #5F6775;
   cursor: pointer;
 
   &:hover,
@@ -206,7 +238,7 @@
 
   @media screen and (min-width: $tablet) {
     order: +2;
-    margin-top: 20px;
+    margin-bottom: 28px;
     margin-left: 500px;
   }
 

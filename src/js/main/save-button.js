@@ -15,9 +15,9 @@ addStartIng();
 localStorage.setItem('names', JSON.stringify(names));
 localStorage.setItem('ings', JSON.stringify(ings));
 
-function onButtonClick(e) {
+async function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
-    openModal(e.target.dataset.index);
+    await openModal(e.target.dataset.index);
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
       removeFromLocal(e);
