@@ -66,16 +66,29 @@
   }
 }
 .favourite__name {
+  margin-bottom: 28px;
   font-family: $Roboto;
   font-weight: 900;
-  font-size: 32px;
-  line-height: 1.19;
+  font-size: 26px;
+  line-height: 1.61;
   color: $txtColorBlack;
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 32px;
+  }
+  
 }
 .favourites__type {
   font-family: $Poppins;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
+  text-transform: uppercase;
   color: $txtColorGray;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 }

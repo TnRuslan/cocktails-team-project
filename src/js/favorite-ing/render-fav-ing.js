@@ -1,29 +1,29 @@
 import axios from 'axios';
 
-const favoriteList = document.querySelector('.cocktails__list');
+const favoriteList = document.querySelector('.favourites__ing-list-js');
 const favTitle = document.querySelector('.favourites__title');
 const favouritesSubtitle = document.querySelector('.favourites__subtitle');
 
-let names = JSON.parse(localStorage.getItem('names'));
+let ingredients = JSON.parse(localStorage.getItem('ings'));
 
 allPromises();
 
 async function fetchLocal(name) {
   return await axios.get(
-    `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+    `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${name}`
   );
 }
 
 function mapLocal() {
   const arrPromises = [];
-  names.map(cocktail => {
-    arrPromises.push(fetchLocal(cocktail));
+  ingredients.map(ing => {
+    arrPromises.push(fetchLocal(ing));
   });
   return arrPromises;
 }
 
 async function allPromises() {
-  if (names.length !== 0) {
+  if (ingredients.length !== 0) {
     favouritesSubtitle.classList.add('hidden');
     const cocktail = await Promise.all([...mapLocal()]);
     favoriteList.innerHTML = renderByLocal(cocktail);
@@ -38,8 +38,8 @@ function renderByLocal(datas) {
       let classEl = 'remove';
       let btnValue = 'Add to';
       if (
-        JSON.parse(localStorage.getItem('names')).includes(
-          data.data.drinks[0].strDrink
+        JSON.parse(localStorage.getItem('ings')).includes(
+          data.data.ingredients[0].strIngredient
         )
       ) {
         classEl = 'added';
@@ -48,14 +48,12 @@ function renderByLocal(datas) {
       favTitle.classList.remove('hidden');
 
       return `<li class="cocktails__card">
-                <div class="cocktails__thumb">
-                    <img class="cocktails__image" src="${data.data.drinks[0].strDrinkThumb}" alt="${data.data.drinks[0].strDrink}">
-                </div>
                 <div class="cocktails__content-wrapper">
-                    <h3 class="cocktails__subtitle">${data.data.drinks[0].strDrink}</h3>
+                    <h3 class="favourite__name">${data.data.ingredients[0].strIngredient}</h3>
+                    <p class="favourites__type">${data.data.ingredients[0].strType}</p>
                     <div class="cocktails__buttons-wrapper">
                       <button class="cocktails__btn" type="button" data-action="more">Learn more</button>
-                      <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add" data-id="${data.data.drinks[0].idDrink}" data-name="${data.data.drinks[0].strDrink}">${btnValue}</button>
+                      <button class="cocktails__btn cocktails__btn--white ${classEl}" type="button" data-action="add-ing" data-id="${data.data.ingredients[0].idIngredient}" data-name="${data.data.ingredients[0].strIngredient}">${btnValue}</button>
                     </div>
                 </div>
             </li>`;
@@ -63,7 +61,3 @@ function renderByLocal(datas) {
     .join('');
   return markupCard;
 }
-
-// fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007')
-//   .then(data => data.json())
-//   .then(data => console.log(data));
