@@ -24,22 +24,66 @@ async function onRenderImg(e) {
 
   if (inputVal !== '') {
     const img = await nameFetch(inputVal);
+    pagination.innerHTML = '';
     if (!img.drinks) {
       noRender();
       e.target.reset();
     } else {
-      renderCardImg(img);
+      let notesOnPage = 3;
+      if (window.matchMedia('(min-width: 1280px)').matches) {
+        notesOnPage = 9;
+      } else if (window.matchMedia('(min-width: 768px)').matches) {
+        notesOnPage = 6;
+      }
+      let countOfItems = Math.ceil(img.drinks.length / notesOnPage);
+      console.log(countOfItems);
+
+      let showPage = (function () {
+        let active;
+
+        return function (item) {
+          if (active) {
+            active.classList.remove('active');
+          }
+          active = item;
+
+          item.classList.add('active');
+
+          let pageNum = +item.innerHTML;
+
+          let start = (pageNum - 1) * notesOnPage;
+          let end = start + notesOnPage;
+
+          let notes = img.drinks.slice(start, end);
+
+          list.innerHTML = '';
+          renderCardImg(notes);
+        };
+      })();
+
+      let items = [];
+      for (let i = 1; i <= countOfItems; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = i;
+        li.classList.add('pagination__item');
+        pagination.appendChild(li);
+        items.push(li);
+      }
+
+      showPage(items[0]);
+
+      for (let item of items) {
+        item.addEventListener('click', function () {
+          showPage(this);
+        });
+      }
       e.target.reset();
     }
   }
 }
 
-// function addSelectorBySave() {
-
-// }
-
 export function renderCardImg(img) {
-  const markupCard = img.drinks
+  const markupCard = img
     .map(({ strDrink, strDrinkThumb, idDrink }) => {
       let classEl = 'remove';
       let btnValue = 'Add to';
