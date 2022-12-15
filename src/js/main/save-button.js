@@ -11,9 +11,9 @@ let names = [];
 addStartNames();
 localStorage.setItem('names', JSON.stringify(names));
 
-function onButtonClick(e) {
+async function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
-    openModal(e.target.dataset.index);
+    await openModal(e.target.dataset.index);
   } else if (e.target.dataset.action === 'add') {
     if (e.target.textContent === 'Remove') {
       e.target.classList.add('remove');
