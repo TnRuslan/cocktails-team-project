@@ -67,7 +67,7 @@ cocktailsModal.addEventListener('click', coctailsCloseBackdrop);
             Add to favorite
         </button>
          `;
-  // const resIngridient = Object.keys(data)
+  // const rendIngridient = Object.keys(data)
   //   .filter(key => key.includes('strIngredient') && data[key])
   //   .map(key => `<li>${data[key]}<li>`)
   //   .join('');
