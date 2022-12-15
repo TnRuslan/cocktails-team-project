@@ -6,9 +6,9 @@ const cocktailsList = document.querySelector('.cocktails__list-js');
 
 cocktailsList.addEventListener('click', onButtonClick);
 
-// closeCocktailModalBtn.addEventListener('click', onCoctailModalClose);
 
 let names = [];
+addStartNames();
 localStorage.setItem('names', JSON.stringify(names));
 
 function onButtonClick(e) {
@@ -50,13 +50,8 @@ function addStartNames() {
   if (saveName) {
     names = [...saveName];
   }
-  // console.log(saveName);
 }
 
-// function onCoctailModalClose(e) {
-//   e.target;
 
-//   cocktailsModal.classList.add('is__hidden');
-// }
 
 // localStorage.clear();

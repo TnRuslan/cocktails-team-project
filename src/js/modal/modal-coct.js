@@ -32,6 +32,7 @@ export async function openModal(id) {
   cocktailsModal.addEventListener('click', coctailsCloseBackdrop);
 }
 
+// })();
 
  async function idFetch(id) {
   const response = await fetch(
@@ -73,6 +74,7 @@ export async function openModal(id) {
 // </div>`;
 //     document.body.insertAdjacentHTML('beforeend', markup);
 // }
+
 // document.querySelector('.modal__close').addEventListener('click', closeModal);
 //   document.querySelector('.modal').addEventListener('click', modalBtnListener);
 //   document
