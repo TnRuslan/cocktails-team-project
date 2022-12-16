@@ -15,7 +15,7 @@ addStartIng();
 localStorage.setItem('names', JSON.stringify(names));
 localStorage.setItem('ings', JSON.stringify(ings));
 
-async function onButtonClick(e) {
+export async function onButtonClick(e) {
   if (e.target.dataset.action === 'more') {
     await openModal(e.target.dataset.index);
   } else if (e.target.dataset.action === 'add') {
@@ -30,6 +30,10 @@ async function onButtonClick(e) {
       removeIngFromLocal(e);
     } else if (e.target.textContent === 'Add to') {
       addIng(e);
+    } else if (e.target.classList.contains('added')) {
+      removeIngInModal(e);
+    } else if (e.target.classList.contains('remove')) {
+      addIngInModal(e);
     }
   }
 }
@@ -37,7 +41,17 @@ async function onButtonClick(e) {
 function addIng(e) {
   e.target.classList.add('added');
   e.target.classList.remove('remove');
+
   e.target.textContent = 'Remove';
+
+  addStartIng();
+  ings.push(e.target.dataset.name);
+  localStorage.setItem('ings', JSON.stringify(ings));
+}
+
+function addIngInModal(e) {
+  e.target.classList.add('added');
+  e.target.classList.remove('remove');
 
   addStartIng();
   ings.push(e.target.dataset.name);
@@ -63,6 +77,15 @@ function removeFromLocal(e) {
   addStartNames();
   deletName(e.target.dataset.name);
   localStorage.setItem('names', JSON.stringify(names));
+}
+
+function removeIngInModal(e) {
+  e.target.classList.add('remove');
+  e.target.classList.remove('added');
+
+  addStartIng();
+  deletIng(e.target.dataset.name);
+  localStorage.setItem('ings', JSON.stringify(ings));
 }
 
 function removeIngFromLocal(e) {

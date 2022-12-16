@@ -188,7 +188,7 @@
   }
 }
 
-.added::after {
+button.added::after {
   position: absolute;
 
   top: 11px;
@@ -214,7 +214,7 @@
   }
 }
 
-.remove::after {
+button.remove::after {
   position: absolute;
 
   top: 11px;
