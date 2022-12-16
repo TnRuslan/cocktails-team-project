@@ -231,6 +231,7 @@ body.dark {
 
 .mobile-menu {
   padding-top: 20px;
+  min-width: 320px;
   @media screen and (min-width: $desktop) {
     display: none;
   }

@@ -1,12 +1,13 @@
 .favourites__title {
+
   text-align: center;
   margin-bottom: 60px;
   margin-top: 69px;
   font-weight: 600;
   font-size: 22px;
   line-height: 1.9;
+  color: inherit;
 
-  color: $txtColorBlack;
 
   @media screen and (min-width: $tablet) {
     font-weight: 700;
@@ -71,7 +72,7 @@
   font-weight: 900;
   font-size: 26px;
   line-height: 1.61;
-  color: $txtColorBlack;
+  color: inherit;
   @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 1.18;
@@ -87,7 +88,7 @@
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
-  color: $txtColorGray;
+  color: inherit;
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }

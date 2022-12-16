@@ -1,5 +1,6 @@
 .cocktails__title.hidden,
-.favourites__subtitle.hidden {
+.favourites__subtitle.hidden,
+.pagination__wrapper.hidden {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -16,7 +17,7 @@
   width: 239px;
   margin-right: auto;
   margin-left: auto;
-
+  color: inherit;
   text-align: center;
 
   font-weight: 400;
@@ -224,9 +225,10 @@ button.remove::after {
   width: 19px;
   height: 17px;
 
-  background-image: url(../images/main/heart-1.svg);
+  background-image: url(../images/main/heart-test.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  background-color: transparent;
 
   @media screen and (min-width: 768px) {
     top: 15px;

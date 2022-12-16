@@ -16,7 +16,6 @@ const light = getElements(options, 'switch-light-js');
 const dark = getElements(options, 'switch-dark-js');
 const mobMenu = document.querySelector('.backdrop-menu');
 const btnOpenMenu = document.querySelector('.open-btn__icon');
-// console.log(switchEl);
 
 switchEl.addEventListener('input', onSwitch);
 
@@ -24,7 +23,6 @@ const KEY = 'theme';
 const body = document.body;
 
 function onSwitch(e) {
-  console.dir(e.target.checked);
   const { checked } = e.target;
 
   addDarkmode(checked);

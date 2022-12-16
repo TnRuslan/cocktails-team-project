@@ -43,7 +43,6 @@ export async function openModal(id) {
   cocktailsModal.addEventListener('click', coctailsCloseBackdrop);
 
   addFavButton.setAttribute('data-name', `${data.strDrink}`);
-  // console.log(data);
   renderIngList(data);
 
   const markupModal = `
