@@ -1,0 +1,296 @@
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(236, 209, 119, 0.6);
+  z-index: 2;
+  opacity: 1;
+  // overflow-y: auto;
+  transition: opacity 300ms $cubic, translate 300ms $cubic;
+}
+
+.is__hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  .backdrop.is__hidden & {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  // height: 760px;
+  padding: 40px 20px;
+  opacity: 1;
+  overflow-y: hidden;
+  font-family: $Poppins;
+  background-color: $bgColor;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 722px;
+    height: 598px;
+    padding: 10px 10px;
+    // display: flex;
+    // flex-direction: column;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 820px;
+    height: 598px;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 300ms $cubic, opacity 300ms $cubic;
+  }
+}
+
+.modal-render {
+  background-color: inherit;
+}
+
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  transition: transform 300ms ease;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    fill: $accColor;
+    transform: scale(0.8);
+  }
+}
+
+.modal__icon {
+  fill: black;
+}
+
+.coctail-name {
+  margin-top: 40px;
+  font-family: $Roboto;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1.17;
+
+  @media screen and (min-width: $tablet) {
+    // position: absolute;
+    // top: 40px;
+    // left: 330px;
+  }
+}
+
+.coctail__instruction {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.62;
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 28px;
+    margin-left: 18px;
+  }
+}
+
+.coctail__description {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #5F6775;
+  font-family: $Poppins;
+  font-weight: 400;
+  // overflow-y: auto;
+
+  @media screen and (min-width: $tablet) {
+    order: +1;
+    margin-top: 10px;
+    margin-left: 18px;
+    display: inline-block;
+    height: 85px;
+    width: 515px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 85px;
+    width: 615px;
+  }
+}
+
+.coctail-img {
+  border-radius: 5px;
+  margin-top: 15px;
+
+  @media screen and (min-width: $tablet) {
+    order: -1;
+    margin-top: 0;
+    height: 320px;
+    width: 288px;
+  }
+}
+
+.ingredients {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  @media screen and (min-width: $tablet) {
+    // position: absolute;
+    // top: 100px;
+    // left: 330px;
+  }
+}
+
+.ingredients__percoctail {
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+
+  @media screen and (min-width: $tablet) {
+    // position: absolute;
+    // top: 141px;
+    // left: 330px;
+  }
+}
+
+.ingredients__list {
+  font-size: 16px;
+  line-height: 1.62;
+
+  @media screen and (min-width: $tablet) {
+    // position: absolute;
+    // top: 175px;
+    // left: 330px;
+    // height: 155px;
+    // width: 220px;
+    // overflow-y: auto;
+  }
+}
+
+.ingredients__item {
+  color: #5F6775;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $accColor;
+  }
+}
+
+.button-modal {
+  display: block;
+  font-family: $Roboto;
+  font-size: 20px;
+  line-height: 1.2;
+  background-color: $btnColor;
+  border-color: $accColor;
+  color: $txtColorWhite;
+  border-radius: 5px;
+}
+
+.modal__button-favorite {
+  height: 48px;
+  padding: 5px;
+  margin-top: 30px;
+  // &:hover,
+  // &:focus {
+  // color: $accColor;
+  //   }
+
+  @media screen and (min-width: $tablet) {
+    order: +2;
+    margin-bottom: 28px;
+    margin-left: 500px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-left: 580px;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: grey;
+  -webkit-box-shadow: inset 0 0 6px rgba(96, 42, 4, 0.34);
+}
+
+.scroll_off {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.modal__cocktail-wrapper {
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.modal__instructions-wrapper {
+
+  width: 75%;
+}
+
+.modal .cocktails__btn-modal {
+  color: $txtColorWhite;
+  background-color: $accColor;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-top: 30px;
+    // text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+
+  }
+
+  @media screen and (min-width: 768px) {
+      position: absolute;
+        bottom: 28px;
+        right: 28px;
+  }
+
+
+
+}
+
+a.remove {
+  color: $txtColorGray;
+}
+
+a.added {
+  color: $accColor;
+}
+
+// .modal .cocktails__btn-modal {
+  // position: fixed;
+  // bottom: 28px;
+  // right: 28px;
+// }

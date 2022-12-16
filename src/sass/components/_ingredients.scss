@@ -1,0 +1,94 @@
+.favourites__title {
+  text-align: center;
+  margin-bottom: 60px;
+  margin-top: 69px;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.9;
+
+  color: $txtColorBlack;
+
+  @media screen and (min-width: $tablet) {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.31;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 48px;
+    line-height: 1.5;
+  }
+}
+
+.favourites__list {
+  margin-bottom: 60px;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}
+
+.favourites__card {
+  margin-bottom: 20px;
+  font-family: $Roboto;
+  @media screen and (min-width: $tablet) {
+    // width: calc((100% - 32px) / 2);
+    margin-bottom: 0px;
+  }
+  // @media screen and (min-width: 1280px) {
+  //   width: calc((100% - 64px) / 3);
+  // }
+}
+
+.favourites {
+  width: 240px;
+  height: 137px;
+  border: 1px solid $accColor;
+  border-radius: 4px;
+  padding: 20px;
+  &__name,
+  &__type {
+    padding-bottom: 20px;
+    @media screen and (min-width: $tablet) {
+      padding-bottom: 28px;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+    width: 294px;
+    height: 165px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 331px;
+    height: 163px;
+    padding: 30px 28px 28px;
+  }
+}
+.favourite__name {
+  margin-bottom: 28px;
+  font-family: $Roboto;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.61;
+  color: $txtColorBlack;
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 32px;
+  }
+  
+}
+.favourites__type {
+  font-family: $Poppins;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: $txtColorGray;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+}
