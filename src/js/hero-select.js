@@ -3,11 +3,14 @@ const list = document.querySelector('.cocktails__list-js');
 const listOfButton = document.querySelector('.hero__list');
 const heroBtn = document.querySelector('.hero__btn');
 const coctailTitle = document.querySelector('.cocktails__title');
+const paginArrow = document.querySelector('.pagination__wrapper');
+
 listOfButton.addEventListener('click', searchCoctail);
 
 async function searchCoctail(e) {
   const img = e.target.name;
   heroBtn.innerHTML = img.toUpperCase();
+  paginArrow.classList.add('hidden');
 
   if (img !== '') {
     const onFetchCoctail = await onFetchCoctails(img);
@@ -44,6 +47,7 @@ async function searchCoctail(e) {
 
           list.innerHTML = '';
           renderCardImg(notes);
+          paginArrow.classList.remove('hidden');
         };
       })();
 
