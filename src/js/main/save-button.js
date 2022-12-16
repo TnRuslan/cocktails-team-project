@@ -1,8 +1,6 @@
 import { openModal } from '../modal/modal-coct';
 
 const cocktailsList = document.querySelector('.cocktails__list-js');
-// const cocktailsModal = document.querySelector('.backdrop');
-// const closeCocktailModalBtn = document.querySelector('.modal__close');
 
 cocktailsList.addEventListener('click', onButtonClick);
 
@@ -131,4 +129,3 @@ function addStartIng() {
   }
 }
 
-// localStorage.clear();

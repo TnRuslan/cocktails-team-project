@@ -1,6 +1,7 @@
 import createCardMarkup from '../../templates/cocktails-card.hbs';
 const coctailTitle = document.querySelector('.cocktails__title');
 const mobMenu = document.querySelector('#mob-menu');
+const paginArrow = document.querySelector('.pagination__wrapper');
 
 export async function nameFetch(searchName) {
   const response = await fetch(
@@ -20,6 +21,7 @@ const list = document.querySelector('.cocktails__list-js');
 async function onRenderImg(e) {
   e.preventDefault();
   mobMenu.classList.remove('is-open');
+  paginArrow.classList.add('hidden');
   const inputVal = e.target.elements.searchQuery.value;
 
   if (inputVal !== '') {
@@ -36,7 +38,6 @@ async function onRenderImg(e) {
         notesOnPage = 6;
       }
       let countOfItems = Math.ceil(img.drinks.length / notesOnPage);
-      console.log(countOfItems);
 
       let showPage = (function () {
         let active;
@@ -58,6 +59,7 @@ async function onRenderImg(e) {
 
           list.innerHTML = '';
           renderCardImg(notes);
+          paginArrow.classList.remove('hidden');
         };
       })();
 
@@ -107,7 +109,6 @@ export function renderCardImg(img) {
             </li>`;
     })
     .join('');
-  //   return cocList.insertAdjacentHTML('beforeend', markupCard);
   return (list.innerHTML = markupCard);
 }
 

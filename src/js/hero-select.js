@@ -23,7 +23,6 @@ async function searchCoctail(e) {
         notesOnPage = 6;
       }
       let countOfItems = Math.ceil(onFetchCoctail.drinks.length / notesOnPage);
-      console.log(countOfItems);
 
       let showPage = (function () {
         let active;

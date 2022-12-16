@@ -63,7 +63,3 @@ function renderByLocal(datas) {
     .join('');
   return markupCard;
 }
-
-// fetch('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007')
-//   .then(data => data.json())
-//   .then(data => console.log(data));
